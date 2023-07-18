@@ -1,0 +1,89 @@
+<header>
+    <div class="container">
+        <a href="/" class="logo">
+            <img src="/astralite_logo.svg" alt="AstraliteStudios Logo">        
+        </a>
+        <nav>
+            <li>
+                <a href="/who-we-are">Who We Are</a>
+                <a href="/our-team">Our Team</a>
+            </li>
+            <li id="socials-li">
+                <a href="https://github.com/AstraliteStudios" target="_blank"><img class="icon" src="/icons/github.svg"></a>
+                <a href="https://discord.gg/Sa7qUuZ7TN" target="_blank"><img class="icon" src="/icons/discord.svg"></a>
+            </li>
+        </nav>
+    </div>
+</header>
+
+<style>
+
+    :root {
+        --height: 3.5em;
+    }
+
+    header {
+        background-color: #0a0b14;
+        height: var(--height);
+    }
+
+    .container {
+        width: 100%;
+        height: var(--height);
+        display: flex;
+    }
+
+    
+    .logo {
+        display: flex;
+        width: 5.5em;
+        padding: 0.75em 1.25em;
+        margin: 0 0.5em;
+    }
+
+    nav {
+        display: flex;
+        flex: 1;
+        justify-content: space-between;
+        margin: 0 1em;
+    }
+
+    li {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        list-style: none;
+        align-items: center;
+        gap: 1em;
+	}
+
+    li a {
+        display: flex;
+        align-items: center;
+        height: 100%;
+
+        padding: 0 15px;
+        font-weight: bolder;
+        font-size: 0.85em;
+        letter-spacing: .05em;
+        text-transform: uppercase;
+        text-decoration: none;
+
+        transition: background 0.25s ease-out;
+    }
+
+    li a:hover {
+        background: #19162b;
+        transition: background 0.25s ease;
+    }
+
+    .icon {
+        width: 24px;
+        filter: invert();
+    }
+
+    #socials-li {
+        gap: 0.35rem;
+    }
+
+</style>

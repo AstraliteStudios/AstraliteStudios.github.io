@@ -1,0 +1,62 @@
+---
+import Card from "./Card.astro";
+---
+
+<team-member>
+    <div class="container">
+        <h1 class="title">Our Team</h1>
+        <div class="card-container">
+            <Card 
+                name="SleazeStiKs" 
+                job_title="Lead Programmer" 
+                img_id="96695272" 
+                github_username="sleazestiks"
+                twitter_username="sleazestiks" 
+            />
+            <Card 
+                name="RobaCZ" 
+                job_title="Programmer" 
+                img_id="69716853" 
+                github_username="robacz"
+                twitter_username="robadeveloper" 
+            />
+        </div>
+    </div>
+</team-member>
+
+<style>
+
+    team-member {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        
+        background-image: url(/mosaic.png);
+        background-color: #0a0b14;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .title {
+        margin: 1.5rem 0 1rem 0;
+
+        text-transform: uppercase;
+        font-size: 3.5rem;
+        font-weight: 800;
+    }
+
+    .card-container {
+        display: flex;
+        flex-direction: row;
+        gap: 2.5em;
+        justify-content: center;
+        
+        width: 100%;
+        margin-top: 4.5rem;
+    }
+
+</style>

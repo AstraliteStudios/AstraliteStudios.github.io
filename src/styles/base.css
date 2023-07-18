@@ -1,0 +1,98 @@
+
+
+*, *::after, *::before {
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    font-size: calc(1rem + 0.25vw);
+    line-height: 1.5;
+    color: #cde6f1;
+
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+a {
+    color: inherit;
+}
+
+/*
+::selection {
+    background-color: #d29f4d;
+    color: #411733;
+}
+*/
+
+.item-divider {
+    background: #969285;
+    height: 1px;
+    width: calc(100% - 14px);
+    margin-left: 6px;
+    position: relative;
+}
+
+.item-divider::before {
+    position: absolute;
+    content: "";
+    width: 5px;
+    height: 5px;
+    border: 1px solid #969285;
+    transform: rotate(45deg);
+    top: -3px;
+
+    left: -7px;
+}
+
+.item-divider::after {
+    position: absolute;
+    content: "";
+    width: 5px;
+    height: 5px;
+    border: 1px solid #969285;
+    transform: rotate(45deg);
+    top: -3px;
+
+    right: -7px;
+}
+
+.astralite-btn {
+    border-radius: 0.35em;
+    padding: 0.65em 1.5em;
+
+    font-weight: 800;
+    font-size: 0.75em;
+    text-decoration: none;
+}
+
+.btn-blue {
+    background-color: #1a62ff;
+    border-color: #1a62ff;
+}
+
+/* Scrollbar Width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Scrollbar Track */
+::-webkit-scrollbar-track {
+    background: #0a0b14;
+}
+
+/* Scrollbar Handle */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(#0a0b14, #434a86, #0a0b14);
+}
+
+/* Scrollbar Handle (hover) */
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(#0a0b14, #4e559b, #0a0b14);
+}

@@ -1,0 +1,96 @@
+---
+interface Props {
+    name: string;
+    job_title: string;
+    img_id: string;
+    github_username: string;
+    twitter_username: string;
+}
+const { name, job_title, img_id, github_username, twitter_username} = Astro.props;
+---
+
+<card>
+    <div class="container">
+        <img class="img" src={"https://avatars.githubusercontent.com/u/" + img_id}>
+        <div class="text-container">
+            <h3 class="title">{name}</h3>
+            <h3 class="job-title">{job_title}</h3>
+        </div>
+        <div class="socials">
+            <li><a href={"https://github.com/" + github_username} target="_blank"><img src="/icons/github.svg"></a></li>
+            <li><a href={"https://twitter.com/" + twitter_username} target="_blank"><img src="/icons/twitter.svg"></a></li>
+        </div>
+    </div>
+</card>
+
+<style>
+
+    :root {
+        --width: 12rem;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        width: var(--width);
+        margin: 1em;
+        padding: 0.5em;
+
+        list-style: none;
+        text-align: center;
+        
+        background-color: #0a0b14;
+        box-shadow: 0 0 25px 5px #593fa27c;
+    }
+
+    .img {
+        position: relative;
+        width: calc(var(--width) - 2rem);
+    }
+
+    .text-container {
+        margin: 0.75rem 0 0.35rem 0;
+    }
+
+    h3 {
+        text-transform: uppercase;
+    }
+
+    .title {        
+        font-size: 1.1em;
+        font-weight: 800;
+        color: #6f54ba;
+
+        background: linear-gradient(#6a4cbe, #342166);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .job-title {
+        font-size: 0.75em;
+        color: #cacaca;
+    }
+
+    .socials {
+        display: flex;
+        margin-top: 0.25rem;
+        gap: 1em;
+    }
+
+    .socials img {
+        width: 24px;
+        filter: invert();
+        transition: scale 0.1s ease;
+        scale: 1 1;
+    }
+
+    .socials img:hover {
+        transition: scale 0.15s ease;
+        scale: 1.1 1.1;
+    }    
+
+</style>

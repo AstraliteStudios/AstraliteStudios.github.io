@@ -1,5 +1,3 @@
-
-
 *, *::after, *::before {
     margin: 0;
 }
@@ -23,13 +21,6 @@ body {
 a {
     color: inherit;
 }
-
-/*
-::selection {
-    background-color: #d29f4d;
-    color: #411733;
-}
-*/
 
 .item-divider {
     background: #969285;

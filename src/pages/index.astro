@@ -1,4 +1,6 @@
 ---
+import '../styles/base.css';
+
 import Header from '../components/Header.astro';
 import MainLogo from '../components/main/Main.astro';
 import TheTeam from '../components/main/TheTeam.astro';
@@ -14,10 +16,6 @@ import { SEO } from "astro-seo";
 		<meta name="generator" content={Astro.generator} />
 		<title>Astralite Studios</title>
 		<SEO title="AstraliteStudios" canonical="https://astralitestudios.github.io" />
-
-		<style>
-			@import "../styles/base.css";
-		</style>
 	</head>
 	<body>
 		<Header />

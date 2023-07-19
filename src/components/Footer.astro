@@ -36,6 +36,9 @@
 	}
 
 	.container {
+		display: flex;
+		flex-direction: column;
+
 		max-width: 80ch;
 		margin: auto;
         padding: 1.5ch;
@@ -63,6 +66,7 @@
 	@media screen and (max-width: 500px) {
 		.container {
 			background-image: none;
+			align-items: center;
 		}
 
 		main {

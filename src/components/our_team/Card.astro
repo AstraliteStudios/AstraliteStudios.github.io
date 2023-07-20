@@ -26,7 +26,7 @@ const { name, job_title, img_id, github_username, twitter_username} = Astro.prop
 <style>
 
     :root {
-        --width: 12rem;
+        --card-width: 12rem;
     }
 
     .container {
@@ -35,7 +35,7 @@ const { name, job_title, img_id, github_username, twitter_username} = Astro.prop
         justify-content: space-between;
         align-items: center;
 
-        width: var(--width);
+        width: var(--card-width);
         margin: 1em;
         padding: 0.5em;
 
@@ -48,7 +48,7 @@ const { name, job_title, img_id, github_username, twitter_username} = Astro.prop
 
     .img {
         position: relative;
-        width: calc(var(--width) - 2rem);
+        width: calc(var(--card-width) - 2rem);
     }
 
     .text-container {

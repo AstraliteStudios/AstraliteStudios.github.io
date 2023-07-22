@@ -1,0 +1,94 @@
+---
+const url = 'https://discord.com/api/v9/invites/bS7fseHuSU?with_counts=true&with_expiration=true';
+const data = await fetch(url).then((r) => r.json());
+
+const serverIconURL = `https://cdn.discordapp.com/icons/1125799245681787001/${data.guild.icon}.png`;
+---
+
+<join-discord>
+    <div class="container" id="join-discord">
+        <div class="holder">
+            <p class="p-title">Discord</p>
+            <p class="p-subtitle">Join our discord server</p>
+            <div class="item-divider"></div>
+            <div class="p-content">
+                <p><b>{data.approximate_member_count}</b> Members</p>
+                <p><b>{data.approximate_presence_count}</b> Online</p>  
+            </div>
+            <div class="btn-holder">
+                <a href="https://discord.gg/bS7fseHuSU" class="astralite-btn btn-blue" target="_blank">
+                    Join Server
+                </a>
+            </div>
+        </div>
+        <img class="server-icon" src={serverIconURL} alt="Server Icon">
+    </div>
+</join-discord>
+
+
+<style>
+
+    join-discord {
+        display: flex;
+        justify-content: center;
+
+        background-image: url(/bg.jpg);
+        background-size: cover;
+        background-position: 50%
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        gap: 5rem;
+    }
+
+    .holder {
+        display: flex;
+        flex-direction: column;
+        margin: 3.5em;
+    }
+
+    .server-icon {
+        width: 128px;
+        height: 128px;
+        margin: 2.5rem;
+
+        border: 2px solid #ffffff;
+        box-shadow: 0px 0px 64px 0px #00000080;
+    }
+
+    .btn-holder {
+        margin-top: 0.75em;
+        align-self: flex-end;
+    }
+
+    .p-title {
+        font-weight: 900;
+        font-size: 3.35rem;
+        color: #1d0e47;
+    }
+
+    .p-subtitle {
+        font-weight: 700;
+        font-size: 1.35rem;
+        color: #7a7463;
+
+        padding: 0.5em 0;
+        margin-bottom: 0.5em;
+    }
+
+    .p-content {
+        display: flex;
+        flex-direction: row;
+        column-gap: 1rem;
+
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #060707;
+
+        padding: 0.5em 0;
+        margin-top: 0.5em;
+    }
+
+</style>

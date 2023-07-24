@@ -27,6 +27,7 @@ const { name, job_title, img_id, github_username, twitter_username} = Astro.prop
 
     :root {
         --card-width: 12rem;
+        --card-color: #0a0b14;
     }
 
     .container {
@@ -42,7 +43,7 @@ const { name, job_title, img_id, github_username, twitter_username} = Astro.prop
         list-style: none;
         text-align: center;
         
-        background-color: #0a0b14;
+        background-color: var(--card-color);
         box-shadow: 0 0 25px 5px #593fa27c;
     }
 
@@ -50,6 +51,10 @@ const { name, job_title, img_id, github_username, twitter_username} = Astro.prop
         position: relative;
         width: calc(var(--card-width) - 1rem);
         margin-top: 0.5rem;
+        top: -2.5rem;
+        margin-bottom: -2.5rem;
+        border: 6px solid var(--card-color);
+        border-radius: 12px;
     }
 
     .text-container {

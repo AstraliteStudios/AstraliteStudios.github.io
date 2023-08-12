@@ -1,29 +1,119 @@
 <footer>
-    <div class="container">
-        <small>
-            &copy; Astralite Studios {new Date().getFullYear()}
-            <br />
-            Website by <a href="https://github.com/SleazeStiKs" target="_blank">SleazeStiKs</a>
-        </small>
-        <nav>
-            <ul>
-                <li>
-                    <a href="mailto:astralitestudios@gmail.com" target="_blank">Contact</a>
-                </li>
-				<li>
-                    <a href="https://discord.gg/Sa7qUuZ7TN" target="_blank">Discord</a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a href="https://github.com/astralitestudios" target="_blank">GitHub</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+	<script>
+        const logo = document.getElementById("logo"),
+            images = logo.querySelectorAll("img");
+
+        const getActive = () => document.body.dataset.active === "true",
+            setActiveTo = active => document.body.dataset.active = active;
+
+        const shift = (image, index, rangeX, rangeY) => {
+        const active = getActive();
+                
+        const translationIntensity = active ? 24 : 4,
+                maxTranslation = translationIntensity * (index + 1),
+                currentTranslation = `${maxTranslation * rangeX}% ${maxTranslation * rangeY}%`;
+        
+        const scale = active ? 1 + (index * 0.4) : 1;
+        
+        image.animate({ 
+            translate: currentTranslation, 
+            scale 
+        }, { duration: 750, fill: "forwards", easing: "ease" });
+        }
+
+        const shiftAll = (images, rangeX, rangeY) => 
+        images.forEach((image, index) => shift(image, index, rangeX, rangeY));
+
+        const shiftLogo = (e, images) => {  
+        const rect = logo.getBoundingClientRect(),
+                radius = 500;
+        
+			const centerX = rect.left + (rect.width / 2),
+					centerY = rect.top + (rect.height / 2);
+			
+			const rangeX = (e.clientX - centerX) / radius,
+					rangeY = (e.clientY - centerY) / radius;
+			
+			shiftAll(images, rangeX, rangeY);
+        }
+
+        const resetLogo = () => {
+        setActiveTo(false);
+        shiftAll(images, 0.4, -0.7);
+        }
+
+        window.onmousemove = e => shiftLogo(e, images);
+
+        document.body.onmouseleave = () => {
+        if(!getActive()) resetLogo();
+        }
+
+		/*
+        window.onmousedown = e => {
+			setActiveTo(true);
+			shiftLogo(e, images);
+        }
+		*/
+
+        window.onmouseup = e => resetLogo();
+
+        resetLogo();
+    </script>
+
+	<div class="horizontal-container">
+		<div id="logo">
+            <img src="/logos/logo5.svg" draggable="false" />
+            <img src="/logos/logo4.svg" draggable="false" />
+            <img src="/logos/logo3.svg" draggable="false" />
+            <img src="/logos/logo2.svg" draggable="false" />
+			<img src="/logos/logo1.svg" draggable="false" />
+        </div>
+		<div class="container">
+			<small>
+				&copy; Astralite Studios {new Date().getFullYear()}
+				<br />
+				Website by <a href="https://github.com/SleazeStiKs" target="_blank">SleazeStiKs</a>
+			</small>
+			<nav>
+				<ul>
+					<li>
+						<a href="mailto:astralitestudios@gmail.com" target="_blank">Contact</a>
+					</li>
+					<li>
+						<a href="https://discord.gg/Sa7qUuZ7TN" target="_blank">Discord</a>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<a href="https://github.com/astralitestudios" target="_blank">GitHub</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+    
 </footer>
 
 <style>
+
+	.horizontal-container {
+		display: flex;
+		align-items: center;
+		padding: 0 10rem;
+		gap: 5rem;
+	}
+
+	#logo {
+        position: relative;
+        width: 64px;
+        aspect-ratio: 1000 / 556;
+        user-select: none;
+    }
+
+    #logo > img {
+        width: 100%;
+        position: absolute;
+    }
 
     footer {
 		padding: 1ch 0;
@@ -41,7 +131,6 @@
 		flex-direction: column;
 
 		max-width: 80ch;
-		margin: auto;
         padding: 1.5ch;
 	}
 
